@@ -1,6 +1,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.modelo.Usuario;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,12 +36,15 @@ public class VistaUsuario {
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
     
-    public Usuario modificarUsuario(String cedula){
+    public Usuario modificarUsuario(){
         leer = new Scanner(System.in);
+        String cedula;
         String nombre;
         String apellido;
         String correo;
         String contraseña;
+        System.out.print("Ingrese la cedula de la persona: ");
+        cedula = leer.next();
         System.out.print("Ingrese el nombre de la persona: ");
         nombre = leer.next();
         System.out.print("Ingrese el apellido de la persona: ");
@@ -64,10 +68,18 @@ public class VistaUsuario {
         System.out.println("Datos del usuario: "+usuario);
     }
     
-    public void verUsuarios(List<Usuario> listaUsuario){
-        for (Usuario usuario : listaUsuario) {
+    public void verUsuarios(Collection<Usuario> usuario){
+        for (Usuario u : usuario) {
             System.out.println("Datos del usuario: "+ usuario);
         }
+    }
+    
+    public String buscarUsuario(){
+        leer = new Scanner(System.in);
+        String cedula;
+        System.out.print("Ingrese la cedula del usuario: ");
+        cedula = leer.next();
+        return cedula;
     }
 
     public Usuario iniciarSecion() {

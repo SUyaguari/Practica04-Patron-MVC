@@ -39,6 +39,11 @@ public class ControladorTelefono {
         telefonoDAO.update(telefono);
     }
     
+    public void eliminarTelefono(){
+        telefono = vistaTelefono.eliminarTelefono();
+        telefonoDAO.delite(telefono);
+    }
+    
     public void verTelefonos(){
         Collection<Telefono> telefonos;
         telefonos = telefonoDAO.findAll();

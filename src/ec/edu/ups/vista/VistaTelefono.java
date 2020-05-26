@@ -59,7 +59,7 @@ public class VistaTelefono {
     }
     
     public String buscarTelefono(){
-        Scanner leer = new Scanner(System.in);
+        leer = new Scanner(System.in);
         String codigo;
         System.out.print("Ingrese el codigo del telefono: ");
         codigo = leer.next();
