@@ -69,13 +69,35 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    public void agregarTelefono(Telefono telefono){
+        telefonos.add(telefono);
+    }
+
+    public void editarTelefono(Telefono telefono){
+        int posicion = telefonos.indexOf(telefono);
+        telefonos.set(posicion, telefono);
+    }
+    
+    public void eliminarTelefono(Telefono telefono){
+        int posicion = telefonos.indexOf(telefono);
+        telefonos.remove(posicion);
+    }
+    
+    public Telefono buscarTelefono(String codigo){
+        return telefonos.get(Integer.parseInt(codigo));
+    }
+    
+    public List<Telefono> listarTelefonos(){
+        return telefonos;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 83 * hash + Objects.hashCode(this.cedula);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
