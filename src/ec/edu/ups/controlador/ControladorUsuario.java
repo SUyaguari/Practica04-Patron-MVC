@@ -38,19 +38,18 @@ public class ControladorUsuario {
         usuarioDAO.create(usuario);
     }
     
-    public void mostrarUsuario(){
-        String cedula = vistaUsuario.buscarUsuario();
+    public void mostrarUsuario(String cedula){
         usuario = usuarioDAO.read(cedula);
         vistaUsuario.verUsuario(usuario);
     }
     
-    public void modificarUsuario(){
-        usuario = vistaUsuario.modificarUsuario();
+    public void modificarUsuario(String cedula){
+        usuario = vistaUsuario.modificarUsuario(cedula);
         usuarioDAO.update(usuario);
     }
     
-    public void eliminarUsuario(){
-        usuario = vistaUsuario.eliminarUsuario();
+    public void eliminarUsuario(String cedula){
+        usuario = vistaUsuario.eliminarUsuario(cedula);
         usuarioDAO.delite(usuario);
     }
     
@@ -75,4 +74,57 @@ public class ControladorUsuario {
         return null;
     }
     
+    public void agregarTelefonos(String cedula, Telefono telefono){
+        usuario = usuarioDAO.read(cedula);
+        usuario.agregarTelefono(telefono);
+        usuarioDAO.update(usuario);
+        
+    }
+    
+    public void eliminarTelefono(String cedula){
+        usuario = usuarioDAO.read(cedula);
+        vistaTelefono.mostrarTelefonos(usuario.listarTelefonos());
+        telefono = vistaTelefono.eliminarTelefono();
+        if(usuario.listarTelefonos().contains(telefono)){
+            usuario.eliminarTelefono(telefono);
+            telefonoDAO.delite(telefono);
+            System.out.println("Telefono eliminado");
+        }else{
+            System.out.println("Telefono no encontrado");
+        }
+    }
+    
+     public void editarTelefono(String cedula) {
+        usuario = usuarioDAO.read(cedula);
+        vistaTelefono.mostrarTelefonos(usuario.listarTelefonos());
+        telefono = vistaTelefono.modificar();
+        if (usuario.listarTelefonos().contains(telefono)) {
+            usuario.editarTelefono(telefono);
+            telefonoDAO.update(telefono);
+            System.out.println("Telefono acrualizado");
+        } else {
+            System.out.println("Telefono no encontrado");
+        }
+    }
+     
+    public void buscarTelefono(String cedula) {
+        usuario = usuarioDAO.read(cedula);
+        String codigo = vistaTelefono.buscarTelefono();
+        telefono = telefonoDAO.read(codigo);
+        if (usuario.listarTelefonos().contains(telefono)) {
+            System.out.println("Telefono encontrado: ");
+            System.out.println(telefono);
+        } else {
+            System.out.println("Telefono no encontrado");
+        }
+    }
+    
+   public void listarTelefonos(String cedula) {
+        usuario = usuarioDAO.read(cedula);
+        if (!usuario.listarTelefonos().isEmpty()) {
+            System.out.println(usuario.listarTelefonos());
+        } else {
+            System.out.println("Agenda vacia");
+        }
+    }
 }

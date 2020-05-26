@@ -36,15 +36,12 @@ public class VistaUsuario {
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
     
-    public Usuario modificarUsuario(){
+    public Usuario modificarUsuario(String cedula){
         leer = new Scanner(System.in);
-        String cedula;
         String nombre;
         String apellido;
         String correo;
         String contraseña;
-        System.out.print("Ingrese la cedula de la persona: ");
-        cedula = leer.next();
         System.out.print("Ingrese el nombre de la persona: ");
         nombre = leer.next();
         System.out.print("Ingrese el apellido de la persona: ");
@@ -56,11 +53,7 @@ public class VistaUsuario {
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
     
-    public Usuario eliminarUsuario(){
-        leer = new Scanner(System.in);
-        String cedula;
-        System.out.print("Ingrese la cedula del cliente que desea eliminar");
-        cedula = leer.next();
+    public Usuario eliminarUsuario(String cedula){
         return new Usuario(cedula, null, null, null, null);
     }
     
