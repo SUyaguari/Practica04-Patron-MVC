@@ -5,6 +5,7 @@ import ec.edu.ups.controlador.ControladorUsuario;
 import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.vista.InterfazGrafica;
 import ec.edu.ups.vista.VistaTelefono;
 import ec.edu.ups.vista.VistaUsuario;
 import java.util.Scanner;
@@ -24,10 +25,13 @@ public class Prueba {
     
     static private ControladorTelefono controladorTelefono = new ControladorTelefono(vistaTelefono, telefonoDAO);
     static private ControladorUsuario controladorUsuario = new ControladorUsuario(vistaUsuario, usuarioDAO, vistaTelefono, telefonoDAO);
+    
+    static private InterfazGrafica intefaz = new InterfazGrafica();
 
     public static void main(String[] args) {
         int opcion1;
         do{
+            intefaz.setVisible(false);
             System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨MENU¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
             System.out.println("[1] Registrarse");
             System.out.println("[2] Iniciar Sesion");
@@ -39,6 +43,7 @@ public class Prueba {
             
             switch(opcion1){
                 case 1:
+                    intefaz.setVisible(false);
                     controladorUsuario.crearUsuario();
                     System.out.println("Se ha registrado el usuario");
                     break;
@@ -47,6 +52,7 @@ public class Prueba {
                     if(cedula!=null){
                         int opcion2;
                         do {
+                            intefaz.setVisible(true);
                             System.out.println("***********MENU***********");
                             System.out.println("[1] Registrar Telefono");
                             System.out.println("[2] Modificar Telefono");
@@ -59,6 +65,7 @@ public class Prueba {
                             System.out.println("**************************");
                             System.out.print("Ingrese una opcion: ");
                             opcion2=leer.nextInt();
+                            
                             
                             switch(opcion2){
                                 case 1: 
@@ -96,9 +103,11 @@ public class Prueba {
                     }
                     break;
                 case 3:
+                    intefaz.setVisible(false);
                     controladorUsuario.mostrarUsuarios();
                     break;
                 case 4: 
+                    intefaz.setVisible(false);
                     System.out.println("\nApagando sistema");
                     break;
             }
