@@ -75,12 +75,13 @@ public class VistaUsuario {
         return cedula;
     }
 
-    public Usuario iniciarSecion() {
-        System.out.println("Porfavor ingrese sus datos para verificar su identidad\n");
-        System.out.print("Correo Electronico:  ->");
-        String correo = leer.nextLine();
-        System.out.print("Contraseña:  ->");
-        String contraseña = leer.nextLine();
+    public Usuario iniciarSesion() {
+        String correo;
+        String contraseña;
+        System.out.print("Correo Electronico: ");
+        correo = leer.next();
+        System.out.print("Contraseña: ");
+        contraseña = leer.next();
         return new Usuario(null, null, null, correo, contraseña);
     }
 }

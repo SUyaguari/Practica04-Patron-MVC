@@ -64,11 +64,11 @@ public class ControladorUsuario {
     }
     
     public Usuario iniciarSesion(){
-        usuario = vistaUsuario.iniciarSecion();
+        usuario = vistaUsuario.iniciarSesion();
         Collection<Usuario> usuarios = usuarioDAO.findAll();
-        for (Usuario usuario1 : usuarios) {
-            if(usuario.equals(usuario1)){
-                return usuario1;
+        for (Usuario u : usuarios) {
+            if (usuario.equals(u)) {
+                return u;
             }
         }
         return null;

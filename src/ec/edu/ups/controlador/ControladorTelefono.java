@@ -23,9 +23,10 @@ public class ControladorTelefono {
         this.telefonoDAO = telefonoDAO;
     }
     
-    public void telefonoCrear(){
+    public Telefono telefonoCrear(){
         telefono = vistaTelefono.registrar();
         telefonoDAO.create(telefono);
+        return telefono;
     }
     
     public void mostrarTelefono(){
