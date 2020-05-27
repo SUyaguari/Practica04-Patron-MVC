@@ -24,6 +24,7 @@ public class InterfazGrafica extends Frame{
         GridLayout matrizComponentes3 = new GridLayout(1, 2);
         GridLayout matrizComponentes4 = new GridLayout(1, 2);
         GridLayout matrizComponentes5 = new GridLayout(4, 2);
+        GridLayout matrizComponentes6 = new GridLayout(1, 3);
         BorderLayout ordenar = new BorderLayout();
         BorderLayout ordenar2 = new BorderLayout();
         BorderLayout ordenar3 = new BorderLayout();
@@ -38,6 +39,7 @@ public class InterfazGrafica extends Frame{
         Panel ordenador3 = new Panel(ordenar3);
         Panel ordenador4 = new Panel(ordenar4);
         Panel ordenador5 = new Panel(ordenar5);
+        Panel ordenador6 = new Panel(matrizComponentes6);
         
         Panel registro = new Panel(matrizComponentes);
         Panel modificar = new Panel(matrizComponentes2);
@@ -97,6 +99,8 @@ public class InterfazGrafica extends Frame{
         Button botonBuscar = new Button("Aceptar");
         Button boton4 = new Button("Aceptar");
         Button boton5 = new Button("Eliminar Usuario");
+        Button boton6 = new Button("Cerrar Sesion");
+        Button botonListar = new Button("Listar Telefonos");
         
         registro.add(labelCodigo);
         registro.add(textoCodigo);
@@ -161,7 +165,12 @@ public class InterfazGrafica extends Frame{
         
         panel1.add(ordenador5);
         
-        panel1.add(boton5);
+        
+        ordenador6.add(botonListar);
+        ordenador6.add(boton6);
+        ordenador6.add(boton5);
+        
+        panel1.add(ordenador6);
         
         TextArea mostrarTexto = new TextArea();
         mostrarTexto.setEditable(false);
